@@ -9,7 +9,7 @@ Energy1 <- pdata$Sub_metering_1
 Energy2 <- pdata$Sub_metering_2
 Energy3 <- pdata$Sub_metering_3
 
-## convert the Date and Time variables to POsixlt
+## convert the Date and Time variables to POSIXlt
 Dateinfo <- strptime(pdata$Date,"%d/%m/%Y")
 Datetime <- as.POSIXlt(paste(Dateinfo,pdata$Time))
 
