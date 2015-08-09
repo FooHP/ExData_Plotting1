@@ -2,8 +2,10 @@
 ## Read the dataset into R using read.table
 powerdata <- read.table("household_power_consumption.txt",sep=";",header=TRUE,na.strings = "?")
 
-## Extract  data from the dates 2007-02-01 to 2007-02-02
-pdata <- powerdata[(powerdata$Date=="1/2/2007"|powerdata$Date=="2/2/2007"),]
+
+## Extract  data from the dates 2007-02-01 to  2007-02-02
+powerdata$Date <- as.Date(powerdata$Date,"%d/%m/%Y")
+pdata <- powerdata[(powerdata$Date <= "2007-02-02" & powerdata$Date >= "2007-02-01"),]
 
 ## Open PNG device; create "plot1.png" in the current working directory
 png(filename="plot1.png",height=480,width=480)    
